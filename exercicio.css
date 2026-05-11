@@ -1,19 +1,18 @@
 #controles ul {
-  list-style-type: none;
-  padding: 0;
-  transform: translateX(-80%);
+    list-style-type: none;
+    padding: 0;
+    transform: translateX(-80%);
+    transition: all 0.5s ease-out 0s;
 }
 
 #controles ul:hover {
-  transform: translateX(0);
+    transform: translateX(0);
 }
 
 /* Exercício 1: Criar uma transição para quando o mouse estiver em cima dos
  * botões play/stop (para que o elemento se revele lentamente)
  */
- #controles ul {
-
- }
+#controles ul {}
 
 /*
  * Exercício 2: Você deve implementar uma metáfora visual para cada um dos 4
@@ -24,17 +23,55 @@
  *   - atacando: animal dá um salto e cresce, com uma borda vermelha
  */
 .com-fome {
-
+    box-sizing: border-box;
+    animation: girando10 1s ease-in-out 0s infinite alternate;
 }
 
 .satisfeito {
-
+    border: 10px solid rgb(0, 255, 0);
+    box-sizing: border-box;
+    animation: girando360 1s ease-in-out 0s infinite;
 }
 
 .com-raiva {
-
+    animation: crescendo 0.2s ease-in-out 0s infinite alternate;
 }
 
 .atacando {
+    position: absolute;
+    border: 10px solid red;
+    animation: crescendo 0.5s ease-in-out 0s infinite alternate;
+    z-index: 1;
+}
 
+@keyframes girando10 {
+  from {
+    transform: rotate(10deg);
+    border: 10px solid rgb(62, 128, 0);
+    opacity: 1;
+  }
+  to {
+    transform: rotate(-10deg);
+    border: 10px solid rgb(0, 255, 0);
+    opacity: 0.5;
+  }
+}
+
+@keyframes girando360 {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+}
+
+@keyframes crescendo {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.5);
+    }
 }
